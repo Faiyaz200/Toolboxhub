@@ -41,8 +41,37 @@ footer{border-top:1px solid var(--line);padding:35px 18px;color:var(--muted)}.fo
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.wide{grid-column:span 2}}
 @media(max-width:650px){.grid{grid-template-columns:1fr}.wide,.full{grid-column:auto}}
 </style>
+
+<style>
+.site-nav{position:sticky;top:0;z-index:1000;background:rgba(15,23,42,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-inner{max-width:1180px;margin:auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand-link{font-weight:800;text-decoration:none;color:#fff;font-size:1.05rem}
+.nav-links{display:flex;gap:18px;flex-wrap:wrap}
+.nav-links a{color:#cbd5e1;text-decoration:none;font-size:.92rem}
+.nav-links a:hover{color:#fff}
+.info-section{max-width:1000px;margin:36px auto;padding:28px 20px;border-radius:18px;background:rgba(15,23,42,.72);border:1px solid rgba(255,255,255,.08)}
+.info-section h2{margin-top:0}
+.info-section p,.info-section li{line-height:1.7;color:#cbd5e1}
+.info-section a{color:#93c5fd}
+.site-footer{max-width:1000px;margin:30px auto 50px;padding:20px;text-align:center;color:#94a3b8;font-size:.9rem}
+@media(max-width:650px){.nav-inner{align-items:flex-start;flex-direction:column}.nav-links{gap:12px}}
+</style>
+
 </head>
 <body>
+
+<nav class="site-nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand-link" href="#top">🧰 ToolBoxHub</a>
+    <div class="nav-links">
+      <a href="#tools">Tools</a>
+      <a href="#about">About</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
 <header><nav><a class="logo" href="#">ToolBox<span>Hub</span></a><div><button onclick="document.getElementById('tools').scrollIntoView()">🧰 Tools</button> <button id="theme">🌙</button></div></nav></header>
 
 <section class="hero">
@@ -185,5 +214,33 @@ let cee='';function ca(x){cee+=x;$('calcDisplay').value=cee||'0'}function cc(){c
 function makeQR(){let t=$('qrText').value.trim();if(!t)return alert('Enter text or a link.');$('qr').src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data='+encodeURIComponent(t);$('qr').style.display='block'}
 function openQR(){if($('qr').style.display==='none')return alert('Generate QR first.');window.open($('qr').src,'_blank')}
 </script>
+
+<section id="about" class="info-section">
+  <h2>About ToolBoxHub</h2>
+  <p>ToolBoxHub is a simple free online toolbox built to make everyday file, text, security and developer tasks easier from one place.</p>
+  <p>Many tools process your files directly in your browser, so you can work quickly without installing a desktop app. Some features may use third-party web services or libraries when required.</p>
+</section>
+
+<section id="privacy" class="info-section">
+  <h2>Privacy Policy</h2>
+  <p><strong>Last updated:</strong> September 3, 2026</p>
+  <p>ToolBoxHub is designed with privacy in mind. Where a tool supports browser-side processing, your selected files are processed locally in your browser and are not intentionally uploaded to ToolBoxHub's own server.</p>
+  <p>Some features may contact third-party services, such as external libraries or QR-generation services, to provide functionality. Those services may receive the information required for the request. Do not use ToolBoxHub for highly sensitive information unless you are comfortable with the relevant service's policies.</p>
+  <p>ToolBoxHub may use basic analytics or advertising services in the future. If that happens, this policy will be updated to explain the relevant data practices and choices.</p>
+  <p>For privacy questions, use the Contact section below.</p>
+</section>
+
+<section id="contact" class="info-section">
+  <h2>Contact</h2>
+  <p>Found a bug, have a tool suggestion, or want to report an issue? We'd love to hear from you.</p>
+  <p>Email: <a href="mailto:faiyaz200@gmail.com">faiyaz200@gmail.com</a></p>
+  <p><small>Replace this email with your preferred public contact email before publishing if needed.</small></p>
+</section>
+
+<footer class="site-footer">
+  <div>© 2026 ToolBoxHub. Free online tools.</div>
+  <div style="margin-top:8px"><a href="#tools">Tools</a> · <a href="#about">About</a> · <a href="#privacy">Privacy</a> · <a href="#contact">Contact</a></div>
+</footer>
+
 </body>
 </html>
